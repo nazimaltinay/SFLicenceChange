@@ -211,20 +211,5 @@ public with sharing class SFProfileHandler {
         return true;
     }
 
-    /*
-    public String NewLicenseId {get; private set;}
-    public UserLicense NewUserLicense {get; private set;}
-    public String NewLicenseName {
-        set{
-            List<UserLicense> usrLic = [SELECT Id, LicenseDefinitionKey, TotalLicenses, Status, UsedLicenses, UsedLicensesLastUpdated, Name, MasterLabel, CreatedDate, LastModifiedDate, SystemModstamp FROM UserLicense where name =:value];
-            if(usrLic.size()>0)
-            {
-                this.NewLicenseId = usrLic[0].Id;
-                NewUserLicense = usrLic[0];
-            } else {
-                throw new localException ('Error: User License could not be found. Check License Name ' );
-            }
-        }
-    }
-    */
+
 }
