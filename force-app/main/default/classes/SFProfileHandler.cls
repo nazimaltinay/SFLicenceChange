@@ -170,8 +170,17 @@ public with sharing class SFProfileHandler {
             }
         }
         System.debug('fieldPErmission count--->'+ newFieldPermissions.size() + ' / TOTAL fieldPErmission count--->'+ fieldPermissionsFrom.size());
-         Database.upsert(newFieldPermissions, false);
-        
+        Integer errC = 0;
+        Database.UpsertResult[] srList =  Database.upsert(newFieldPermissions, false);
+        for (Database.UpsertResult sr : srList) {
+            if (!sr.isSuccess()) {
+                 // Operation failed, so get all errors                
+                for(Database.Error err : sr.getErrors()) {
+                    System.debug('Error -->#'+errC+': '+ err.getStatusCode() + ': ' + err.getMessage()+' Affected fields:'+err.getFields() );
+                }
+                errC++;
+            }
+        }        
         return true;
     }
     public Boolean CloneObjectPermissions()
@@ -206,7 +215,18 @@ public with sharing class SFProfileHandler {
                 objPermsNew.add(objEx);
             }
           }
-         Database.upsert(objPermsNew, false);
+          Database.UpsertResult[] srList =   Database.upsert(objPermsNew, false);
+          Integer errC =0;
+          for (Database.UpsertResult sr : srList) {
+            if (!sr.isSuccess()) {
+                 // Operation failed, so get all errors                
+                for(Database.Error err : sr.getErrors()) {
+                    System.debug('Error -->#'+errC+': ' + err.getStatusCode() + ': ' + err.getMessage()+' Affected fields:'+err.getFields() );
+                }
+            }
+            errC++;
+        }
+
          System.debug('Object Permission count--->'+ objPermsNew.size());
         return true;
     }
