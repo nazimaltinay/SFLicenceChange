@@ -1,18 +1,23 @@
-# Salesforce DX Project: Next Steps
+# Motivation
+I need to change licences from Force.com to Lightning Platform nowadays. We can not clone profiles which has different license types as you know.
+Object and field basis access rights one of the big headache. 
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+It provides synchronization of object and field access rights between profiles.
 
-## How Do You Plan to Deploy Your Changes?
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+## How to use it.
 
-## Configure Your Salesforce DX Project
+It is Invocable class and you can call directly from apex class or from Developer Console as Anonymous.
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+The sample call prototype is in following;
 
-## Read All About It
+        List<SFProfileHandler.InputParameter> Params = new List<SFProfileHandler.InputParameter>();
+        SFProfileHandler.InputParameter param = new SFProfileHandler.InputParameter();
+        param.ProfileFrom = 'Profile NAME from';
+        param.ProfileTo =   'to New Profile Name';  
+        params.add(param);
+        SFProfileHandler.CloneProfilePermissions(Params);
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## Next developmets.
+    - It can be a LWC to call from page
+    - Object name filter can be added.
