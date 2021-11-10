@@ -1,7 +1,7 @@
 public with sharing class SFProfileHandler {
     
 
-    @invocableMethod(label = 'Clone Profile Permissions' description='ProfileFrom, Profile To' category='Profile' )
+    @invocableMethod(label = 'Clone Profile Permissions' description='Profile From, Profile To' category='Profile' )
     public static List<Boolean>   CloneProfilePermissions(List<InputParameter> Params)
     {
         List<Boolean> results = new List<Boolean>();
