@@ -38,7 +38,7 @@ public with sharing class SFProfileHandler {
     public  class InputParameter {
         @InvocableVariable(Label='Profile From'  required=true )
         public String ProfileFrom;
-        @InvocableVariable(Label='Profile From'  required=true )
+        @InvocableVariable(Label='Profile To'  required=true )
         public String ProfileTo;
     }
 
