@@ -13,11 +13,10 @@ public with sharing class SFProfileHandler {
             sfP.profileFromName = inp.ProfileFrom;
             sfP.ProfileToName = inp.ProfileTo;
         }
-
-        //sfP.profileFromName = 'Test Planning Production';
+ 
         system.debug('Profile From -->'+ sfp.ProfileFrom );
         system.debug('Permission set from-->'+sfp.PermissionSetFrom );
-        //sfP.ProfileToName = 'New Planning Profile';
+ 
         system.debug('Profile To -->'+ sfp.ProfileTo );
         system.debug('Permission set from-->'+sfp.PermissionSetTo );
         List<ObjectPermissions > objPerms = sfp.ObjectPermissionsFrom;
