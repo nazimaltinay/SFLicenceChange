@@ -8,6 +8,7 @@ It provides synchronization of object and field access rights between profiles.
 ## How to use it.
 
 It is Invocable class and you can call directly from apex class or from Developer Console as Anonymous.
+You can use Salesforce Screen Flow also, I used it.
 
 The sample call prototype is in following;
 
